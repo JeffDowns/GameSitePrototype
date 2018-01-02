@@ -1,18 +1,22 @@
 
     //VARIABLES
+    var theme = new Audio("assets/audio/theme.mp3")
     var gameCanvas = document.getElementById("graphics");
     var grafx = gameCanvas.getContext('2d');
-    var maxBlock = 1000;
+    var maxBlock = 255;
     var player = new Object("../game/assets/sprites/idle.gif", 100, 100, 19, 34);
     var block = new Array();
     for(let i = 0; i <= maxBlock; i++){
-        block[i] = new Object("../game/assets/sprites/Other Vegetation/plx-5.png", i*32+100, 300, 93, 89)
+        block[i] = new Object("../game/assets/sprites/Other Vegetation/grassRect.png", i * 86 + 100, 720, 431, 87)
+        block[1] = new Object("../game/assets/sprites/Other Vegetation/grassRect.png", 0,  720, 431, 8)
+
     }
+
     isLeft = false;
     isRight = false;
     var isSpace = false;
-    player.Gravity = 20;
-    player.Weight = 0.1;
+    player.Gravity = 10;
+    player.Weight = 0.08;
     
     //EVENTS
     function keyDown(e){
@@ -57,7 +61,7 @@
         grafx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
         grafx.drawImage(player.Sprite, player.X, player.Y);
         for(let i = 0; i <= maxBlock; i++){grafx.drawImage(block[i].Sprite, block[i].X, block[i].Y);}
-        setTimeout(mainLoop, 1000/60); //fps
+        setTimeout(mainLoop, 1000/120); //fps
     }
     
     function Object(img, x, y, width, height){
