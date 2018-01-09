@@ -44,3 +44,15 @@ canvas {
     overflow: hidden;
     
 }
+
+.homeContent{
+    margin: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 110%;
+}
+.homeContent h1{
+    font-size: 120%;
+    color: white;
+    background-color: #333;
+}
